@@ -1,0 +1,5 @@
+custom:
+  enabled: true
+
+app:
+  environment: DEV

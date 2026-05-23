@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Zjazd 1, ćwiczenie z XML:
+         przykład konfiguracji beanów przez XML zamiast @Component.
+         Plik pokazuje metodę, ale nie jest importowany w aplikacji,
+         żeby nie tworzyć duplikatów tych samych beanów. -->
+
+    <bean id="xmlFirstComponent" class="pl.pjatk.piobed.zjazd1.component.MyFirstComponent"/>
+    <bean id="xmlSecondComponent" class="pl.pjatk.piobed.zjazd1.component.MySecondComponent">
+        <constructor-arg ref="xmlFirstComponent"/>
+    </bean>
+</beans>

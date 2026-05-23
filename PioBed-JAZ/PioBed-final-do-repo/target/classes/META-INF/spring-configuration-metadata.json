@@ -1,0 +1,38 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "pl.pjatk.piobed.zjazd2.config.AppConfigurationProperties",
+      "sourceType": "pl.pjatk.piobed.zjazd2.config.AppConfigurationProperties"
+    },
+    {
+      "name": "app.owner",
+      "type": "pl.pjatk.piobed.zjazd2.config.AppConfigurationProperties$Owner",
+      "sourceType": "pl.pjatk.piobed.zjazd2.config.AppConfigurationProperties",
+      "sourceMethod": "getOwner()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.environment",
+      "type": "java.lang.String",
+      "sourceType": "pl.pjatk.piobed.zjazd2.config.AppConfigurationProperties"
+    },
+    {
+      "name": "app.owner.name",
+      "type": "java.lang.String",
+      "sourceType": "pl.pjatk.piobed.zjazd2.config.AppConfigurationProperties$Owner"
+    },
+    {
+      "name": "app.owner.university",
+      "type": "java.lang.String",
+      "sourceType": "pl.pjatk.piobed.zjazd2.config.AppConfigurationProperties$Owner"
+    },
+    {
+      "name": "app.values",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "pl.pjatk.piobed.zjazd2.config.AppConfigurationProperties"
+    }
+  ],
+  "hints": []
+}
