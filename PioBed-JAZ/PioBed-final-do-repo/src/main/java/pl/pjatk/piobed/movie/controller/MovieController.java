@@ -71,4 +71,10 @@ public class MovieController {
 
         return ResponseEntity.noContent().build();
     }
+    @PatchMapping("/{id}/rent")
+    public ResponseEntity<Movie> rentMovie(@PathVariable Long id) {
+        return movieService.rentMovie(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
