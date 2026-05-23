@@ -78,4 +78,16 @@ public class MovieService {
 
         return Optional.of(movieRepository.save(movie));
     }
+    public Optional<Movie> rentMovie(Long id) {
+        Optional<Movie> movieOptional = movieRepository.findByIdNamed(id);
+
+        if (movieOptional.isEmpty()) {
+            return Optional.empty();
+        }
+
+        Movie movie = movieOptional.get();
+        movie.setIsAvailable(false);
+
+        return Optional.of(movieRepository.save(movie));
+    }
 }
