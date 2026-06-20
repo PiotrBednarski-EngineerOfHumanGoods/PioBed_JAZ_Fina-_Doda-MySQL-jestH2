@@ -1,0 +1,53 @@
+# Główny plik konfiguracyjny Spring Boot.
+# Klucze nadpisywane są przez profile w application-{profil}.yml,
+# uruchamiane parametrem --spring.profiles.active=dev (lub qa, prod).
+
+# Port pod którym MovieService nasłuchuje. RentalService woła go pod localhost:8081.
+# Adres Swagger UI: http://localhost:8081/swagger-ui.html
+# Specyfikacja OpenAPI (JSON): http://localhost:8081/v3/api-docs
+server:
+  port: 8081
+
+spring:
+  main:
+    banner-mode: off
+
+  # Konfiguracja połączenia z bazą danych - MySQL po stronie pracy domowej zjazd 4.
+  # Pole haslo wpisać przed uruchomieniem albo nadpisać przez zmienną środowiskową.
+  datasource:
+    url: jdbc:mysql://localhost:3306/piobed?useSSL=false&serverTimezone=Europe/Warsaw&allowPublicKeyRetrieval=true
+    username: root
+    password: wpisz_tutaj_haslo
+
+  # Hibernate / JPA - automatyczne migracje schematu na podstawie encji.
+  jpa:
+    hibernate:
+      ddl-auto: update      # update = aktualizuje schemat, create-drop = czyści przy każdym starcie
+    show-sql: true          # SQL widoczny w konsoli (przydatne do nauki)
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    root: off
+
+# Klucz odczytywany przez @Value("${my.custom.property:...}") w BeanConfiguration.
+my:
+  custom:
+    property: Hello from application yml
+
+# Flaga sterująca beanem warunkowym (@ConditionalOnProperty) w ProfileBeanConfiguration.
+custom:
+  enabled: false
+
+# Mapowanie na klasę AppProperties (prefix "app") - @ConfigurationProperties.
+app:
+  environment: DEV
+  owner:
+    name: Piotr
+    university: PJATK
+  values:
+    - first
+    - second
+    - third
